@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -9,17 +10,21 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Game game = new Game();
         Deck deck = new Deck();
+        int player1cards = 7;
+        int player2cards = 7;
 
         while (!isOver) {
             String choice = scanner.nextLine();
             if (choice.equals("1")) {
-                int theDeck[][] = deck.shuffleDeck();
-                int[][] player1Hand = deck.dealCards(theDeck);
+                int theDeck[] = deck.shuffleDeck();
+                int[] player1Hand = deck.dealCards(theDeck);
                 deck.identifyCards(player1Hand);
-                int[][] player2Hand = deck.dealCards(theDeck);
                 System.out.println("--------");
-                deck.identifyCards(player2Hand);
-                game.newGame(player1Hand, player2Hand, theDeck);
+                String test = scanner.nextLine();
+                while (test.equals("1")) {
+                    deck.drawCard(theDeck, player1Hand);
+                    test = scanner.nextLine();
+                }
             } else if (choice.equals("2")) {
                 isOver = true;
             } else {
