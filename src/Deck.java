@@ -19,7 +19,7 @@ public class Deck {
             if (deck[cardType] == -1) {
                 i--;
             } else {
-                cardsOnHand[i] = deck[cardType];
+                cardsOnHand[cardType] = deck[cardType];
                 deck[cardType] = -1;
             }
         }
