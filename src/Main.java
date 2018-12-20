@@ -9,15 +9,13 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Game game = new Game();
         Deck deck = new Deck();
-        int[][] playerHand;
 
         while (!isOver) {
             String choice = scanner.nextLine();
             if (choice.equals("1")) {
                 int theDeck[][] = deck.shuffleDeck();
-                playerHand = deck.dealCards(theDeck);
+                int[][] playerHand = deck.dealCards(theDeck);
                 deck.identifyCards(playerHand);
-
             } else if (choice.equals("2")) {
                 isOver = true;
             } else {

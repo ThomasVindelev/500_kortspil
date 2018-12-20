@@ -38,6 +38,21 @@ public class Deck {
         return cardsOnHand;
     }
 
+    public void drawCard(int[][] deck, int[][] playerHand) {
+        Random draw = new Random();
+        boolean hasDrawn = false;
+        while (!hasDrawn) {
+            int cardColourDraw = draw.nextInt(4);
+            int cardTypeDraw = draw.nextInt(13);
+            if (deck[cardColourDraw][cardTypeDraw] != -1) {
+                playerHand[cardColourDraw][cardTypeDraw] = deck[cardColourDraw][cardTypeDraw];
+                hasDrawn = true;
+                deck[cardColourDraw][cardTypeDraw] = -1;
+                identifyCards(playerHand);
+            }
+        }
+    }
+
     public void identifyCards(int[][] playerHand) {
         for (int i = 0; i < playerHand.length; i++) {
             for (int j = 0; j < playerHand[i].length; j++) {
