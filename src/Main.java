@@ -14,8 +14,12 @@ public class Main {
             String choice = scanner.nextLine();
             if (choice.equals("1")) {
                 int theDeck[][] = deck.shuffleDeck();
-                int[][] playerHand = deck.dealCards(theDeck);
-                deck.identifyCards(playerHand);
+                int[][] player1Hand = deck.dealCards(theDeck);
+                deck.identifyCards(player1Hand);
+                int[][] player2Hand = deck.dealCards(theDeck);
+                System.out.println("--------");
+                deck.identifyCards(player2Hand);
+                game.newGame(player1Hand, player2Hand, theDeck);
             } else if (choice.equals("2")) {
                 isOver = true;
             } else {

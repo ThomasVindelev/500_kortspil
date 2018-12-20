@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class Deck {
 
-    int[][] deck = new int[4][13];
+    private int[][] deck = new int[4][13];
 
     public int[][] shuffleDeck() {
         for (int i = 0; i < deck.length; i++) {
