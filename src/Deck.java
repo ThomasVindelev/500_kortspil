@@ -47,6 +47,15 @@ public class Deck {
         }
     }
 
+    public void rearrangeCards(int[] playerHand, int remainingCards, int removedCard) {
+        for (int i = removedCard; i <= remainingCards; i++) {
+            playerHand[i] = playerHand[i+1];
+            if (i == remainingCards) {
+               playerHand[i] = 0;
+            }
+        }
+    }
+
     public void identifyCards(int[] playerHand) {
         for (int i = 1; i < playerHand.length; i++) {
             if (playerHand[i] > 0 && playerHand[i] < 14) {
